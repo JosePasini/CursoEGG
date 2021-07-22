@@ -89,15 +89,25 @@ public class Persona {
         if (comprobarSexo(s.charAt(0))) {
             this.sexo = s.charAt(0);
         } else {
-            JOptionPane.showInputDialog("Sexo incorrecto");
-            this.sexo = '?';
+            JOptionPane.showMessageDialog(null, "Sexo incorrecto");
+            pedirSexo();
+        }
+    }
+
+    public void pedirSexo() {
+        String s = JOptionPane.showInputDialog("Ingrese sexo\n 'H', 'M', 'O' ");
+        if (comprobarSexo(s.charAt(0))) {
+            this.sexo = s.charAt(0);
+        } else {
+            JOptionPane.showMessageDialog(null, "Sexo incorrecto");
+            pedirSexo();
         }
     }
 
     public int calcularIMC(int[] porcentaje_imc) {
         double alturaEnMt = (double) this.altura / 100;
         double imc = (double) this.peso / ((double) Math.pow(alturaEnMt, 2));
-        JOptionPane.showMessageDialog(null, "IMC: " + imc);
+        JOptionPane.showMessageDialog(null, this.getNombre() + " IMC: " + imc);
 
         if (imc < 20) {
             porcentaje_imc[0]++;
