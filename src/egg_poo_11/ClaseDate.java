@@ -1,5 +1,7 @@
 package egg_poo_11;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -10,6 +12,15 @@ public class ClaseDate {
         Calendar calendar = Calendar.getInstance();
         Calendar fechaUsuario = Calendar.getInstance();
 
+        LocalDate ingresada = LocalDate.of(2000, 01, 01);
+        LocalDate fechaHoy = LocalDate.now();
+
+        Period periodoT = Period.between(ingresada, fechaHoy);
+
+        System.out.println("\n Tiempo trasncurrido desde su fecha ingresada a HOY:" + ingresada.getYear()
+                + "\n Años transcurridos(EDAD EJ:):" + periodoT.getYears());
+
+        /*
         int dia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese dia."));
 
         while (dia < 1 || dia > 31) {
@@ -37,7 +48,7 @@ public class ClaseDate {
 
         System.out.println(calendar.getTime());
 
-
+         */
     }
 
 }
